@@ -4,10 +4,10 @@ import {Product} from "../../components"
 
 
 const products = [{
-    id:1, name : "Nike", desc: "A very good and understanding shoe", price : "$150",
-    id:2, name : "Nike", desc: "A very good and understanding shoe",price : "$150",
-    id:3, name : "Nike", desc: "A very good and understanding shoe", price : "$150",
-}]
+    id:1, name : "Nike", desc: "A very good and understanding shoe", price : "$150"},
+    {id:2, name : "Nike", desc: "A very good and understanding shoe",price : "$150"},
+    {id:3, name : "Nike", desc: "A very good and understanding shoe", price : "$150"},
+]
 const Products = () => {
   return (
     <main>

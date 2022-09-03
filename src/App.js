@@ -1,8 +1,11 @@
 import React from 'react'
+import { Products } from './components'
 
 const App = () => {
   return (
-    <div>Welcome to Ecommerce website</div>
+    <div>
+      <Products />
+    </div>
   )
 }
 
