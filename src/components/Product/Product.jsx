@@ -4,7 +4,7 @@ import { AddShoppingCart } from '@mui/icons-material';
 import Logo from '../../assets/mobile.jpg';
 
 const Product = ({ product }) => {
-	console.log(product);
+	// deeper destructuring of objects
 	const { price: { formatted, formatted_with_symbol }, name, description } = product;
 	return (
 		<Card className="max-w-full">
