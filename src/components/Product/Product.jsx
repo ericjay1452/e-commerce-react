@@ -1,16 +1,16 @@
 import React from 'react'
 import { CardMedia, Card, CardActions,CardContent, Typography, IconButton } from '@mui/material'
 import { AddShoppingCart } from '@mui/icons-material'
+import Logo from "../../assets/mobile.jpg"
 
 const Product = ({product}) => {
 
   return (
-    <Card style={{maxWidth : "100%"}}>
-        <CardMedia image = "" title = {product.name} style = {{height : 0, paddingTop: '56.25%'}}/>
+    <Card className = "max-w-full">
+        <CardMedia image = {Logo} title = {product.name} style = {{height : 0, paddingTop: '56.25%'}}/>
 
         <CardContent>
-         <div style={{display: 'flex',
-    justifyContent: 'space-between'}}>
+         <div className= 'flex justify-between'>
             <Typography variant = {"5"} gutterBottom>
                 {product.name}
             </Typography>
@@ -25,8 +25,7 @@ const Product = ({product}) => {
          </Typography>
         </CardContent>
 
-        <CardActions disableSpacing style={{display: 'flex',
-    justifyContent: 'flex-end',}}>
+        <CardActions disableSpacing className = 'flex justify-end'>
           <IconButton aria-label='add to cart'>
             <AddShoppingCart />
           </IconButton>
