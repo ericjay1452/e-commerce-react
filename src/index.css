@@ -2,6 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.full-rounded {
-    border-radius: 50%;
-}
