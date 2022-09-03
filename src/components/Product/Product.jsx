@@ -3,9 +3,9 @@ import { CardMedia, Card, CardActions, CardContent, Typography, IconButton } fro
 import { AddShoppingCart } from '@mui/icons-material';
 import Logo from '../../assets/mobile.jpg';
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
 	// deeper destructuring of objects
-	const { price: { formatted, formatted_with_symbol }, name, description } = product;
+	const { price: { formatted, formatted_with_symbol }, name, description, id } = product;
 	return (
 		<Card className="max-w-full">
 			<CardMedia image={Logo} title={product.name} style={{ height: 0, paddingTop: '56.25%' }} />
@@ -27,7 +27,7 @@ const Product = ({ product }) => {
 			</CardContent>
 
 			<CardActions disableSpacing className="flex justify-end">
-				<IconButton aria-label="add to cart">
+				<IconButton aria-label="add to cart" onClick={() =>onAddToCart(product.id, 1)}>
 					<AddShoppingCart />
 				</IconButton>
 			</CardActions>

@@ -14,9 +14,14 @@ const App = () => {
 		setProducts(data);
 	};
 
+  // api for adding a chosen product and quantity to cart
   const fetchCartItem = async () => {
-    const { data } = commerce.cart.retrieve();
-    setCart(data)
+    setCart(await commerce.cart.retrieve());
+  }
+
+  const HandleAddToCart = async (id, quantity) => {
+    const items = await commerce.cart.add(id, quantity)
+    setCart(items.cart)
   }
 
 	useEffect(() => {
@@ -24,12 +29,14 @@ const App = () => {
     fetchCartItem();
 	}, []);
 
-  console.log(cart)
+  console.log({cart})
 
 	return (
 		<div className="">
 			<NavBar />
-			<Products products={products} />
+
+      {/*Passing this prop handle to Products, to be use in IconButton which is in our Product comp.  */}
+			<Products products={products}  onAddToCart = {HandleAddToCart} />
 		</div>
 	);
 };
