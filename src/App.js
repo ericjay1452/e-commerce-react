@@ -24,6 +24,8 @@ const App = () => {
     setCart(items.cart)
   }
 
+  console.log(cart)
+
 	useEffect(() => {
 		fetchProducts();
     fetchCartItem();
@@ -33,10 +35,10 @@ const App = () => {
 
 	return (
 		<div className="">
-			<NavBar />
+			<NavBar  totalCartLength= {cart.total_items}/>
 
       {/*Passing this prop handle to Products, to be use in IconButton which is in our Product comp.  */}
-			<Products products={products}  onAddToCart = {HandleAddToCart} />
+			<Products products={products}  onAddToCart= {HandleAddToCart} />
 		</div>
 	);
 };
