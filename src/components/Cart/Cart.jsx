@@ -13,7 +13,7 @@ const Cart = ({cart}) => {
   return (
     <div style={{background : "gray",marginTop : "5rem", width : "100%",}}>
         <Container>
-            <Typography variant = "h5" >Your Shopping Cart</Typography>
+            <Typography variant = "h5" gutterBottom>Your Shopping Cart</Typography>
             { isCartEmpty ? <EmptyCart /> : < FilledCart cartItems={cart.line_items} cart = {cart}/>} 
         </Container>
     </div>

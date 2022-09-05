@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { 
-	// Products
-	Cart
-	, NavBar
- } from './components';
+import { Products,Cart, NavBar } from './components';
 import commerce from './lib/commerce';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
 	const [ products, setProducts ] = useState([]);
@@ -38,13 +35,14 @@ const App = () => {
 //   console.log({cart})
 
 	return (
-		<div className="">
-			<NavBar  totalCartLength= {cart.total_items}/>
-
-      {/*Passing this prop handle to Products, to be use in IconButton which is in our Product comp.  */}
-			{/* <Products products={products}  onAddToCart= {HandleAddToCart} /> */}
-			<Cart cart = {cart} />
-		</div>
+		<>
+		<NavBar  totalCartLength= {cart.total_items}/>
+		<Routes>
+			<Route path='/' exact element = {<Products products={products}  onAddToCart= {HandleAddToCart} />} />
+            {/*Passing this prop handle to Products, to be use in IconButton which is in our Product comp.  */}	
+            <Route path='/cart' element = {<Cart cart = {cart} />}/>
+		</Routes>
+		</>
 	);
 };
 
