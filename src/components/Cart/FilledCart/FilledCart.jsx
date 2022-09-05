@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@mui/material'
 import { CustomButton } from '../../../CONST/Button'
+import {CartItem} from "../../../components"
 
 const FilledCart = ({cartItems, cart}) => {
 
@@ -12,7 +13,7 @@ const FilledCart = ({cartItems, cart}) => {
           cartItems?.map( (item) =>{
             return (
             <Grid item xs ={12} sm = {4} key = {item.id}>
-            <div>{item.name}</div> 
+            <CartItem item = {item} />
             </Grid>)
           })
         }
