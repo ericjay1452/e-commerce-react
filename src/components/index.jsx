@@ -1,3 +1,6 @@
 export {default as Product } from "../components/Product/Product"
 export {default as Products } from "../components/Products/Products"
 export {default as NavBar } from "../components/NavBar/NavBar"
+export {default as EmptyCart } from "../components/Cart/EmptyCart/EmptyCart"
+// export {default as FilledCart } from "../components/Cart/FilledCart/FilledCart"
+export {default as FilledCart} from "../components/Cart/FilledCart/FilledCart"
