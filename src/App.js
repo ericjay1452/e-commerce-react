@@ -37,7 +37,7 @@ const App = () => {
 
 
   // api for removing a products from cart
-  const HandleRenoveCartItem = async (id) => {
+  const HandleRemoveCartItem = async (id) => {
     const {data} = await commerce.cart.remove(id)
     setCart(cart)
   }
@@ -52,20 +52,23 @@ const App = () => {
 		fetchProducts();
     fetchCartItem();
 	}, []);
+    
+	// if(!products) return <h3>Loadingg....</h3>
 
+	// if(!cart) return <h4>Please wait</h4>
 
 	return (
 		<>
-		<NavBar  totalCartLength= {cart.total_items}/>
+		<NavBar  totalCartLength={cart.total_items}/>
 		<Routes>
-			<Route path='/' exact element = {<Products products={products}  onAddToCart= {HandleAddToCart} />} />
+			<Route path='/' exact element = {<Products products={products}  onAddToCart={HandleAddToCart} />} />
             {/*Passing this prop handle to Products, to be use in IconButton which is in our Product comp.  */}	
             <Route path='/cart' 
 			element = {<Cart 
-			cart = {cart} 
-			HandleCartUpdateQuant = {HandleCartUpdateQuant}
-			HandleRenoveCartItem = {HandleRenoveCartItem}
-			HandleEmptyCart = {HandleEmptyCart}
+			cart={cart} 
+			HandleCartUpdateQuant={HandleCartUpdateQuant}
+			HandleRemoveCartItem={HandleRemoveCartItem}
+			HandleEmptyCart={HandleEmptyCart}
 			/>}/>
 		</Routes>
 		</>

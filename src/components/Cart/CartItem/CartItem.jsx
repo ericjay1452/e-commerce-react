@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography,Card, Button, CardMedia, CardActions, CardContent } from '@mui/material'
 import { CustomButton } from '../../../CONST/Button'
 
-const CartItem = ({item}) => {
+const CartItem = ({item, onUpdate, onRemoveFromCart}) => {
     console.log({item})
   return (
     <Card> 
@@ -17,7 +17,9 @@ const CartItem = ({item}) => {
         <div className='flex justify-content items-center'>
             <CustomButton size= "small" 
             type={"button"} aria-label = "reduce-item from shopping cart" 
-            color = "primary" variant={"contained"}> 
+            color = "primary" variant={"contained"}
+            onClick = {() => onUpdate(item.id, item.quantity -1)}
+            > 
             - 
             </CustomButton>
 
@@ -25,7 +27,9 @@ const CartItem = ({item}) => {
 
             <CustomButton size= "small" 
             type={"button"} aria-label = "add-item to shopping cart" 
-            color = "primary" variant={"contained"}> 
+            color = "primary" variant={"contained"}
+            onClick={() => onUpdate(item.id, item.quantity + 1)}
+            > 
             + 
             </CustomButton>
         </div>
@@ -33,7 +37,9 @@ const CartItem = ({item}) => {
          <div style = {{marginLeft : "auto"}}>
         <CustomButton size= "small" 
             type={"button"} aria-label = "remove all items from shopping cart" 
-            color = "secondary" variant={"contained"}> 
+            color = "secondary" variant={"contained"}
+            onClick={()=> onRemoveFromCart(item.id)}
+            > 
             Clear Cart
             </CustomButton>
             </div>

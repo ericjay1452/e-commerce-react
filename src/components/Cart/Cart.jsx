@@ -5,7 +5,7 @@ import {EmptyCart, FilledCart } from "../../components"
 
 
 
-const Cart = ({cart, HandleCartUpdateQuant, HandleRenoveCartItem , HandleEmptyCart}) => {
+const Cart = ({cart, HandleCartUpdateQuant, HandleRemoveCartItem , HandleEmptyCart}) => {
     if(!cart?.line_items) return <h2>Loading !!!</h2>
 
     // also serve as this : cart.line_items.length === 0;
@@ -17,7 +17,13 @@ const Cart = ({cart, HandleCartUpdateQuant, HandleRenoveCartItem , HandleEmptyCa
     <div style={{background : "gray",marginTop : "5rem", width : "100%",}}>
         <Container>
             <Typography variant = "h5" gutterBottom>Your Shopping Cart</Typography>
-            { isCartEmpty ? <EmptyCart HandleEmptyCart = {HandleEmptyCart}/> : < FilledCart cartItems={cart.line_items} cart = {cart}/>} 
+            { isCartEmpty ? <EmptyCart /> : < FilledCart 
+            cartItems={cart.line_items} 
+            cart = {cart} 
+            HandleEmptyCart={HandleEmptyCart}
+            HandleRemoveCartItem={HandleRemoveCartItem}
+            HandleCartUpdateQuant={HandleCartUpdateQuant}
+            />} 
         </Container>
     </div>
   )
