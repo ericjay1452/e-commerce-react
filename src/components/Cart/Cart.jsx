@@ -2,6 +2,9 @@ import React from 'react'
 import { Container, Typography, Button, Grid } from '@mui/material'
 import {EmptyCart, FilledCart } from "../../components"
 
+
+
+
 const Cart = ({cart}) => {
     if(!cart?.line_items) return <h2>Loading !!!</h2>
     // also serve as this : cart.line_items.length === 0;

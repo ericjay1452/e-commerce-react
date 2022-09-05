@@ -28,14 +28,14 @@ const App = () => {
     setCart(items.cart)
   }
 
-  console.log(cart)
+//   console.log(cart)
 
 	useEffect(() => {
 		fetchProducts();
     fetchCartItem();
 	}, []);
 
-  console.log({cart})
+//   console.log({cart})
 
 	return (
 		<div className="">
