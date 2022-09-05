@@ -5,6 +5,8 @@ import Logo from "../../assets/kidsValueProp.png"
 import { useLocation, Link } from 'react-router-dom'
 
 const NavBar = ({totalCartLength}) => {
+
+  const location = useLocation()
   return (
     <>
       <AppBar position='fixed'  color = "inherit">
@@ -18,6 +20,9 @@ const NavBar = ({totalCartLength}) => {
             </Typography>
             <div className='' />
 
+                 {/* Material Ui support direct Link in their component */}
+                 {location.pathname === "/" && (
+                  // Only display cart when on home page
             <div className= "">
               <IconButton aria-label='show cart items' color = "inherit" component={Link} to= "/cart">
                <Badge badgeContent = {totalCartLength} color = "secondary">
@@ -25,6 +30,7 @@ const NavBar = ({totalCartLength}) => {
                </Badge>
               </IconButton>
             </div>
+          )}
 
         </Toolbar>
         </AppBar>  
