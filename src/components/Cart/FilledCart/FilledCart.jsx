@@ -23,13 +23,12 @@ const FilledCart = ({cartItems, cart}) => {
           subtotal : {cart?.subtotal?.formatted_with_symbol}
         </Typography>
             
-            <div>
+            <div className = "flex p-2 justify-between">
               <CustomButton type = {"button"} 
               variant = {"contained"} 
               aria_label = {"empty cart button"} 
               color = {"primary"}
               size = {"large"}
-              className = "p-4"
               >
                 Empty Cart
               </CustomButton>
