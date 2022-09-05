@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography,Card, Button, CardMedia, CardActions, CardContent } from '@mui/material'
+import { Typography,Card,CardMedia, CardActions, CardContent } from '@mui/material'
 import { CustomButton } from '../../../CONST/Button'
 
 const CartItem = ({item, onUpdate, onRemoveFromCart}) => {

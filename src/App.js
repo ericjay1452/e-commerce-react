@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense} from 'react';
 import { Products,Cart, NavBar } from './components';
 import commerce from './lib/commerce';
 import { Routes, Route } from 'react-router-dom';
@@ -39,13 +39,13 @@ const App = () => {
   // api for removing a products from cart
   const HandleRemoveCartItem = async (id) => {
     const {data} = await commerce.cart.remove(id)
-    setCart(cart)
+    setCart(data)
   }
 
 
   // api for reseting products cart empty
   const HandleEmptyCart = async () => {
-    const {data} = await commerce.cart.empty()
+    const {data} = await commerce.cart.empty();
     setCart(data)
   }
 	useEffect(() => {
@@ -59,6 +59,7 @@ const App = () => {
 
 	return (
 		<>
+		<Suspense fallback = {"Please wait, we are almost done"}>
 		<NavBar  totalCartLength={cart.total_items}/>
 		<Routes>
 			<Route path='/' exact element = {<Products products={products}  onAddToCart={HandleAddToCart} />} />
@@ -71,6 +72,7 @@ const App = () => {
 			HandleEmptyCart={HandleEmptyCart}
 			/>}/>
 		</Routes>
+		</Suspense>
 		</>
 	);
 };
