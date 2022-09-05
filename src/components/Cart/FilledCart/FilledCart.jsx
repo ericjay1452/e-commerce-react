@@ -1,44 +1,46 @@
 import React from 'react'
-import { Grid, Typography, Button } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
+import { CustomButton } from '../../../CONST/Button'
 
+const FilledCart = ({cartItems, cart}) => {
 
-const FilledCart = ({cartItems}) => {
   return (
     <>
-    <main style={{marginTop :" 5rem", background : "red"}}>
+    <main>
       <Grid spacing = {3} container>
         {
           cartItems?.map( (item) =>{
             return (
             <Grid item xs ={12} sm = {4} key = {item.id}>
-            <div>{item.name}</div>
-             <p>subtotal : {item.price.formatted_with_symbol}</p>
+            <div>{item.name}</div> 
             </Grid>)
           })
         }
       </Grid>
 
-      <section>
+      <section className = "flex justify-between items-center pb-4">
         <Typography variant = "h4" color = "primary">
-          {console.log(cartItems)}
+          subtotal : {cart?.subtotal?.formatted_with_symbol}
         </Typography>
             
             <div>
-              <Button type = "button" 
-              variaant = "contained" 
-              aria-label = "emptycart button" 
-              color = "secondary"
-              size = "large">
+              <CustomButton type = {"button"} 
+              variant = {"contained"} 
+              aria_label = {"empty cart button"} 
+              color = {"primary"}
+              size = {"large"}
+              className = "p-4"
+              >
                 Empty Cart
-              </Button>
+              </CustomButton>
 
-              <Button type = "button" 
-              variaant = "contained" 
+              <CustomButton type = "button" 
+              variant = "contained" 
               aria-label = "Checkout button" 
-              color = "secondary"
-              size = "large">
+              size = "large"
+              >
                 Checkout
-              </Button>
+              </CustomButton>
 
             </div>
 
