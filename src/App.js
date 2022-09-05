@@ -20,19 +20,39 @@ const App = () => {
     setCart(await commerce.cart.retrieve());
   }
 
+
+  // api for adding a products to cart
   const HandleAddToCart = async (id, quantity) => {
-    const items = await commerce.cart.add(id, quantity)
-    setCart(items.cart)
+    const {data} = await commerce.cart.add(id, quantity)
+    setCart(data)
   }
 
-//   console.log(cart)
 
+
+  // api for updating  products quantity to cart
+  const HandleCartUpdateQuant = async (id, quantity) => {
+    const {data} = await commerce.cart.update(id, {quantity})
+    setCart(data)
+  }
+
+
+  // api for removing a products from cart
+  const HandleRenoveCartItem = async (id) => {
+    const {data} = await commerce.cart.remove(id)
+    setCart(cart)
+  }
+
+
+  // api for reseting products cart empty
+  const HandleEmptyCart = async () => {
+    const {data} = await commerce.cart.empty()
+    setCart(data)
+  }
 	useEffect(() => {
 		fetchProducts();
     fetchCartItem();
 	}, []);
 
-//   console.log({cart})
 
 	return (
 		<>
@@ -40,7 +60,13 @@ const App = () => {
 		<Routes>
 			<Route path='/' exact element = {<Products products={products}  onAddToCart= {HandleAddToCart} />} />
             {/*Passing this prop handle to Products, to be use in IconButton which is in our Product comp.  */}	
-            <Route path='/cart' element = {<Cart cart = {cart} />}/>
+            <Route path='/cart' 
+			element = {<Cart 
+			cart = {cart} 
+			HandleCartUpdateQuant = {HandleCartUpdateQuant}
+			HandleRenoveCartItem = {HandleRenoveCartItem}
+			HandleEmptyCart = {HandleEmptyCart}
+			/>}/>
 		</Routes>
 		</>
 	);
