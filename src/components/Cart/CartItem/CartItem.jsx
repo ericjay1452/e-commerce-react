@@ -6,6 +6,11 @@ const CartItem = ({item}) => {
   return (
     <Card> 
      <CardMedia src={item?.image?.url} alt = "product" component={"img"} className = "max-width-full" height={"260"}/>
+
+     <CardContent>
+        <Typography variant = "h4">{item.name}</Typography>
+        <Typography variant = "h4">{item.line_total.formatted_with_symbol}</Typography>
+     </CardContent>
     </Card>
   )
 }
