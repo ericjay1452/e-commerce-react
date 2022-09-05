@@ -5,7 +5,7 @@ import Logo from '../../assets/mobile.jpg';
 
 const Product = ({ product, onAddToCart }) => {
 	// deeper destructuring of objects
-	const { price: { formatted, formatted_with_symbol }, name, description, id } = product;
+	const { price: { formatted_with_symbol }, name, description, id } = product;
 	return (
 		<Card className="max-w-full">
 			<CardMedia image={Logo} title={product.name} style={{ height: 0, paddingTop: '56.25%' }} />
