@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Products, NavBar } from './components';
+import { 
+	// Products
+	Cart
+	, NavBar
+ } from './components';
 import commerce from './lib/commerce';
 
 const App = () => {
@@ -38,7 +42,8 @@ const App = () => {
 			<NavBar  totalCartLength= {cart.total_items}/>
 
       {/*Passing this prop handle to Products, to be use in IconButton which is in our Product comp.  */}
-			<Products products={products}  onAddToCart= {HandleAddToCart} />
+			{/* <Products products={products}  onAddToCart= {HandleAddToCart} /> */}
+			<Cart cart = {cart} />
 		</div>
 	);
 };

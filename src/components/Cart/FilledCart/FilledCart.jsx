@@ -1,11 +1,31 @@
 import React from 'react'
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 
 
-const FilledCart = () => {
+const FilledCart = ({cartItems}) => {
+
   return (
     <>
-    <Typography>Hello from Filled Cart</Typography>
+    <main>
+      <Grid spacing = {3} container>
+        {
+          cartItems?.map( (item) =>{
+            return (
+            <Grid item xs ={12} sm = {4} key = {item.id}>
+            <div>{item.name}</div>
+            </Grid>)
+          })
+        }
+      </Grid>
+
+      <section>
+        <Typography variant = "h4">
+          subtotal : {cartItems?.price?.formatted_with_symbol}
+        </Typography>
+
+      </section>
+
+    </main>
     </>
   )
 }
